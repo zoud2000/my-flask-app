@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户列表</title>
+</head>
+<body>
+    <h1>添加用户</h1>
+    <form method="POST" action="/add">
+        <input type="text" name="name" placeholder="名字">
+        <input type="number" name="age" placeholder="年龄">
+        <input type="text" name="city" placeholder="城市">
+        <button type="submit">添加</button>
+    </form>
+
+    <h2>用户列表</h2>
+    {% for user in users %}
+        <p>{{ user["name"] }} | {{ user["age"] }}岁 | {{ user["city"] }}</p>
+    {% endfor %}
+</body>
+</html>
