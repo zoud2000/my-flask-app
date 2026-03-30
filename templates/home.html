@@ -2,19 +2,34 @@
 <html>
 <head>
     <title>用户列表</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>添加用户</h1>
-    <form method="POST" action="/add">
-        <input type="text" name="name" placeholder="名字">
-        <input type="number" name="age" placeholder="年龄">
-        <input type="text" name="city" placeholder="城市">
-        <button type="submit">添加</button>
-    </form>
+<body class="bg-gray-100 p-8">
 
-    <h2>用户列表</h2>
-    {% for user in users %}
-        <p>{{ user["name"] }} | {{ user["age"] }}岁 | {{ user["city"] }}</p>
-    {% endfor %}
+    <div class="max-w-lg mx-auto bg-white rounded-lg p-6 shadow">
+        <h1 class="text-2xl font-bold mb-4">添加用户</h1>
+        <form method="POST" action="/add" class="flex gap-2 mb-6">
+            <input type="text" name="name" placeholder="名字"
+                class="border rounded px-3 py-2 flex-1">
+            <input type="number" name="age" placeholder="年龄"
+                class="border rounded px-3 py-2 w-20">
+            <input type="text" name="city" placeholder="城市"
+                class="border rounded px-3 py-2 flex-1">
+            <button type="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                添加
+            </button>
+        </form>
+
+        <h2 class="text-xl font-bold mb-3">用户列表</h2>
+        {% for user in users %}
+        <div class="flex justify-between border-b py-2">
+            <span>{{ user["name"] }}</span>
+            <span class="text-gray-500">{{ user["age"] }}岁</span>
+            <span class="text-gray-500">{{ user["city"] }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
 </body>
 </html>
